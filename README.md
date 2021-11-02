@@ -8,13 +8,12 @@ ___
 
 
 
->## Versions
->##### Current Version - 1.1
+>## Versions (Current Version - 1.1)
+>
 ><details>
 ><summary>Version History</summary>
 >  
->  - Version 1.1
->  - Version 1.2
+>  - [Version 1.1](MISC/versions.txt)
 >  
 ></details>
 
