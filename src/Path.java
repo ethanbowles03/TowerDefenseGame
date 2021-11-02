@@ -3,12 +3,13 @@ package game;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Path {
 
 	// Fields
-	private Point[] points = new Point[78];
+	private Point[] points;
 
 	/**
 	 * This constructor does the following: - It reads a number of coordinates, n,
@@ -21,12 +22,24 @@ public class Path {
 	 * @param s a Scanner set up by the caller to provide a list of coordinates
 	 */
 	public Path(Scanner s) {
+		//Variables
 		int count = 0;
-		while (s.hasNext()) {
-			int x = s.nextInt();
-			int y = s.nextInt();
-			points[count] = new Point(x, y);
+		ArrayList<Integer> x = new ArrayList<Integer>(); 
+		ArrayList<Integer> y = new ArrayList<Integer>(); 
+		
+		//Loops through and adds to the ArrayLists
+		while(s.hasNext()) {
+			x.add(s.nextInt());
+			y.add(s.nextInt());
 			count++;
+		}
+		
+		//Makes points and adds ArrayLists to the points array
+		points = new Point[count];
+		for(int i = 0; i < count; i++) {
+			int posX = x.get(i);
+			int posY = y.get(i);
+			points[i] = new Point(posX, posY);
 		}
 	}
 
@@ -50,17 +63,67 @@ public class Path {
 	 * @return the screen coordinate of this position along the path
 	 */
 	public Point getPathPosition(double percentTraveled) {
-		
+		//Variables
 		double distanceFromStart = percentTraveled * getPathLength();
-		
 		double distanceToSpot = 0;
 		double useDistance = 0;
+		Point currentPoint = null;
+		Point nextPoint = null;
+		int x = (int) points[0].getX();
+		int y = (int) points[0].getY();
 		
-		int segmentCount = 0;
+		//Loops through and finds the distance to the spot
+		for (int i = 0; i < points.length - 1; i++) {
+			int newX = (int) points[i + 1].getX();
+			int newY = (int) points[i + 1].getY();
+			useDistance = distanceToSpot;
+			distanceToSpot += Math.sqrt((newX - x) * (newX - x) + (newY - y) * (newY - y));
+			if(distanceFromStart < distanceToSpot) {
+				currentPoint = points[i];
+				nextPoint = points[i+1];
+				break;
+			}	
+			x = newX;
+			y = newY;
+		}
 		
+		//Variables
+		double numVal = distanceFromStart - useDistance;
+		double denomVal = distanceToSpot - useDistance;
+		double fracPerc = numVal/denomVal;
+		double xResult, xStart, xEnd, yResult, yStart, yEnd;
+		
+		//Calculates the percent
+		xStart = currentPoint.getX();
+		yStart = currentPoint.getY();
+		xEnd = nextPoint.getX();
+		yEnd = nextPoint.getY();
+		xResult = (1 - fracPerc) * xStart + (fracPerc) * xEnd;
+		yResult = (1 - fracPerc) * yStart + (fracPerc) * yEnd;
+		
+		//Gives the exact point were the dot is
+		int xResultInt = (int)xResult;
+		int yResultInt = (int)yResult;
+		Point returnPoint = new Point(xResultInt, yResultInt);
+		
+		//Returns the point
+		return returnPoint;
+	}
+	
+	/**
+	 * Gets the degree between the two points were the icon is
+	 * @param percentTraveled - inputs the percent travelled
+	 * @return returns the degree between the two lines
+	 */
+	public double getDegree(double percentTraveled) {
+		//Variables
+		double distanceFromStart = percentTraveled * getPathLength();
+		double distanceToSpot = 0;
+		double useDistance;
 		Point currentPoint = null;
 		Point nextPoint = null;
 		
+		//Finds the location of the point
 		int x = (int) points[0].getX();
 		int y = (int) points[0].getY();
 		for (int i = 0; i < points.length - 1; i++) {
@@ -77,48 +140,10 @@ public class Path {
 			y = newY;
 		}
 		
-		double numVal = distanceFromStart - useDistance;
-		double denomVal = distanceToSpot - useDistance;
-		
-		double fracPerc = numVal/denomVal;
-		
-		//Xresult = (1 - 0.4) Xstart + (0.4) Xend  and Yresult = (1 - 0.4) Ystart + (0.4) Yend. 
-		
-		double xResult, xStart, xEnd, yResult, yStart, yEnd;
-		
-		xStart = currentPoint.getX();
-		yStart = currentPoint.getY();
-		
-		xEnd = nextPoint.getX();
-		yEnd = nextPoint.getY();
-				
-		xResult = (1 - fracPerc) * xStart + (fracPerc) * xEnd;
-		yResult = (1 - fracPerc) * yStart + (fracPerc) * yEnd;
-		
-		int xResultInt = (int)xResult;
-		int yResultInt = (int)yResult;
-		
-		Point returnPoint = new Point(xResultInt, yResultInt);
-		
-		System.out.println(returnPoint);
-		
-		return returnPoint;
+		//Finds the degree between the two points on the line
+		double degree = (double) Math.toDegrees(Math.atan2(nextPoint.getY() - currentPoint.getY(), nextPoint.getX() - currentPoint.getX()));
+		return degree;
 	}
-		
-//		if (percentTraveled <= 0) {
-//			Point startingPoint = points[0];
-//			return startingPoint;
-//		} else if (percentTraveled < .25) {
-//			
-//		} else if (percentTraveled < .5) {
-//			
-//		} else if (percentTraveled < .75) {
-//			
-//		} else if (percentTraveled <= 1.0) {
-//			Point endPoint = points[points.length - 1];
-//			return endPoint;
-//		}
-	//}
 
 	/**
 	 * Returns the total length of the path. Since the path is specified using
@@ -127,9 +152,12 @@ public class Path {
 	 * @return the length of the path
 	 */
 	public double getPathLength() {
+		//Variables
 		int x = (int) points[0].getX();
 		int y = (int) points[0].getY();
 		double length = 0.0;
+		
+		//Gets the length of the path
 		for (int i = 0; i < points.length - 1; i++) {
 			int newX = (int) points[i + 1].getX();
 			int newY = (int) points[i + 1].getY();
@@ -137,6 +165,8 @@ public class Path {
 			x = newX;
 			y = newY;
 		}
+		
+		//Returns the length of the line
 		return length;
 	}
 
@@ -148,6 +178,7 @@ public class Path {
 	 */
 
 	public void paint(Graphics g) {
+		//Paints the line of the path
 		g.setColor(Color.RED);
 		int x = (int) points[0].getX();
 		int y = (int) points[0].getY();
@@ -159,5 +190,4 @@ public class Path {
 			y = newY;
 		}
 	}
-
 }
