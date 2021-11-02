@@ -4,18 +4,26 @@
 <h3 align="center">By Ethan Bowles and Conner Fisk</h2>
 
 ___
->### About This Project
+>## About This Project
 
 
 
->### Versions
+>## Versions
+>##### Current Version - 1.1
+><details>
+><summary>Version History</summary>
+>  
+>  - Version 1.1
+>  - Version 1.2
+>  
+></details>
 
 
 
->### Diagrams and Images
+>## Diagrams and Images
 
 
->### Code
+>## Code
 ><details>
 ><summary>Source Code</summary>
 >  
