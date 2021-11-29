@@ -33,7 +33,19 @@ ___
 >  - [WaterBottle.png](resources/WaterBottle.png) 
 >  
 ></details>
-![Alt text](resources/TowerDefense.umlcd.png)
+><details>
+><summary>Diagrams</summary>
+>  
+>  ![Alt text](resources/TowerDefense.umlcd.png)
+> 
+></details>
+><details/>
+><summary>Screenshots</summary>
+>  
+>  ![Alt text](resources/TowerDefense.umlcd.png)
+> 
+></details>
+
 
 >## Code
 ><details>
