@@ -42,7 +42,7 @@ ___
 ><details/>
 ><summary>Screenshots</summary>
 >  
->  ![Alt text](resources/TowerDefense.umlcd.png)
+>  ![Alt text](MISC/GameSC1.png)
 > 
 ></details>
 
