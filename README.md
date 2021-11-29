@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="TowerDefenseLogo.png" />
+  <img src="MISC/TowerDefenseLogo.png" />
 </p>
 <h3 align="center">By Ethan Bowles and Conner Fisk</h2>
 
