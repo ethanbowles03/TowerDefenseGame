@@ -22,7 +22,7 @@ ___
 
 >## Diagrams and Images
 ><details>
-><summary>Resources/TowerDefenseLogo.png</summary>
+><summary>Images</summary>
 >  
 >  - [View All Images](resources) 
 >  - [GameOver.png](resources/GameOver.png)
@@ -35,8 +35,6 @@ ___
 >  
 ></details>
 ![Alt text](resources/TowerDefense.umlcd.png)
-
-
 
 >## Code
 ><details>
