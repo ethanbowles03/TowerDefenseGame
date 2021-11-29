@@ -1,5 +1,6 @@
 <p align="center">
-  <img src="MISC/TowerDefenseLogo.png" />
+  <img s
+       rc="MISC/TowerDefenseLogo.png" />
 </p>
 <h3 align="center">By Ethan Bowles and Conner Fisk</h2>
 
@@ -21,7 +22,7 @@ ___
 
 >## Diagrams and Images
 ><details>
-><summary>Images</summary>
+><summary>Resources/TowerDefenseLogo.png</summary>
 >  
 >  - [View All Images](resources) 
 >  - [GameOver.png](resources/GameOver.png)
@@ -33,6 +34,7 @@ ___
 >  - [WaterBottle.png](resources/WaterBottle.png) 
 >  
 ></details>
+![Alt text](resources/TowerDefense.umlcd.png)
 
 
 
