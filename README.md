@@ -12,18 +12,37 @@ ___
 >
 ><details>
 ><summary>Version History</summary>
+>
+>><details>
+>><summary>Version 1.1 : 10/1/2021</summary>
+>>
+>>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hello this is the sample text
+>>  
+>></details>
+>><details>
+>><summary>Version 1.2 : 10/1/2021</summary>
+>>
+>>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hello this is the sample text
+>>  
+>></details>
+>><details>
+>><summary>Version 1.3 : 10/1/2021</summary>
+>>
+>>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hello this is the sample text
+>>  
+>></details>
 >  
->  - [Version 1.1](MISC/version1_1.txt)
+>  [Previous Versions](MISC/version1_1.txt)
 >  
 ></details>
 
 
 
->## Diagrams and Images
+>## Diagrams and Resources
 ><details>
-><summary>Images</summary>
+><summary>Resources</summary>
 >  
->  - [View All Images](resources) 
+>  - [View All Resources](resources) 
 >  - [GameOver.png](resources/GameOver.png)
 >  - [HaasCar.png](resources/HaasCar.png) 
 >  - [HaasTruck.png](resources/HaasTruck.png) 
