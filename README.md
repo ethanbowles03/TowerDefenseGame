@@ -75,7 +75,7 @@ ___
 >><details>
 >><summary>path_2.png</summary>
 >>
->>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Alt text](resources/path_2.png)
+>>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Alt text](resources/path_2.jpg)
 >>  
 >></details>
 >><details>
@@ -91,13 +91,29 @@ ___
 ><details>
 ><summary>Diagrams</summary>
 >  
->  ![Alt text](resources/TowerDefense.umlcd.png)
+>><details>
+>><summary>UML Diagram</summary>
+>>
+>>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Alt text](resources/TowerDefense.umlcd.png)
+>>  
+>></details>
 > 
 ></details>
 ><details/>
 ><summary>Screenshots</summary>
->  
->  ![Alt text](MISC/GameSC1.png)
+>
+>><details>
+>><summary>Game Screen</summary>
+>>
+>>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Alt text](MISC/GameSC1.png)
+>>  
+>></details>
+>><details>
+>><summary>End Game Screen</summary>
+>>
+>>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Alt text](resources/GameOver.png)
+>>  
+>></details>
 > 
 ></details>
 
@@ -106,7 +122,6 @@ ___
 ><details>
 ><summary>Source Code</summary>
 >  
->  - [View All Code](src) 
 >  - [Animatable.java](src/Animatable.java)
 >  - [Enemy.java](src/Enemy.java)
 >  - [EnemyHaasCar.java](src/EnemyHaasCar.java)
@@ -125,5 +140,7 @@ ___
 >  - [TowerOilMoving.java](src/TowerOilMoving.java)
 >  - [TowerWater.java](src/TowerWater.java)
 >  - [TowerWaterMoving.java](src/TowerWaterMoving.java) 
+>
+>  [View All Code](src) 
 >  
 ></details>
