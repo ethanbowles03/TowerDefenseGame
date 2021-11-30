@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="MISC/TowerDefenseLogo.png" />
+  <img src="MISC/TowerDefenseLogo.drawio.png" />
 </p>
 <h3 align="center">Authors : Ethan Bowles and Conner Fisk</h2>
 
