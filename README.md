@@ -1,7 +1,7 @@
 <p align="center">
   <img src="MISC/TowerDefenseLogo.png" />
 </p>
-<h3 align="center">By Ethan Bowles and Conner Fisk</h2>
+<h3 align="center">Authors : Ethan Bowles and Conner Fisk</h2>
 
 ___
 >## About This Project
