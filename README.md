@@ -32,8 +32,6 @@ ___
 >>  
 >></details>
 >  
->  [Previous Versions](MISC/version1_1.txt)
->  
 ></details>
 
 
