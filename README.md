@@ -42,15 +42,51 @@ ___
 ><details>
 ><summary>Resources</summary>
 >  
->  - [View All Resources](resources) 
->  - [GameOver.png](resources/GameOver.png)
->  - [HaasCar.png](resources/HaasCar.png) 
->  - [HaasTruck.png](resources/HaasTruck.png) 
->  - [MenuOverlay.png](resources/MenuOverlay.png) 
->  - [OilBarrel.png](resources/OilBarrel.png)
->  - [path_2.png](resources/path_2.png) 
->  - [WaterBottle.png](resources/WaterBottle.png) 
->  
+>><details>
+>><summary>GameOver.png</summary>
+>>
+>>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Alt text](resources/GameOver.png)
+>>  
+>></details>
+>><details>
+>><summary>HaasCar.png</summary>
+>>
+>>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Alt text](resources/HaasCar.png)
+>>  
+>></details>
+>><details>
+>><summary>HaasTruck.png</summary>
+>>
+>>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Alt text](resources/HaasTruck.png)
+>>  
+>></details>
+>><details>
+>><summary>MenuOverlay.png</summary>
+>>
+>>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Alt text](resources/MenuOverlay.png)
+>>  
+>></details>
+>><details>
+>><summary>OilBarrel.png</summary>
+>>
+>>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Alt text](resources/OilBarrel.png)
+>>  
+>></details>
+>><details>
+>><summary>path_2.png</summary>
+>>
+>>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Alt text](resources/path_2.png)
+>>  
+>></details>
+>><details>
+>><summary>WaterBottle.png</summary>
+>>
+>>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Alt text](resources/WaterBottle.png)
+>>  
+>></details>
+>
+>  [View All Resources](resources) 
+>
 ></details>
 ><details>
 ><summary>Diagrams</summary>
