@@ -56,10 +56,17 @@ public class GameControl implements Runnable, ActionListener {
 		// Checks to see if the game is over
 		if (state.getLives() < 0 && gameOverCount < 1) {
 			state.addGameObject(new GameOver(state));
-			count = 1;
+
+			long currentTime = System.nanoTime();
+			double elapsedTime = (currentTime - previousTime) / 1_000_000_000.0;
+
+			state.updateAll(elapsedTime);
+
+			view.repaint();
+
 			gameOverCount = 1;
 		} else { // Continues if it is not
-			if(gameOverCount != 1) {
+			if (gameOverCount != 1) {
 				count++;
 				if (count % 150 == 0) {
 					// Adds a truck 25% of the time
@@ -72,6 +79,7 @@ public class GameControl implements Runnable, ActionListener {
 					}
 				}
 			}
+
 			// Our animation 'loop' -- not an actual loop,
 			// but we recognize that this function get called
 			// repeatedly.
@@ -93,6 +101,7 @@ public class GameControl implements Runnable, ActionListener {
 			// Draw the game objects
 
 			view.repaint();
+
 		}
 	}
 }

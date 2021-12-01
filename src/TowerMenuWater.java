@@ -26,7 +26,7 @@ public class TowerMenuWater implements Animatable {
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawImage(ResourceLoader.getLoader().getImage("WaterBottle.png"), x, y, 20, 50, null);
+		g.drawImage(ResourceLoader.getLoader().getImage("WaterBottle.png"), x, y, 15, 40, null);
 	}
 
 }

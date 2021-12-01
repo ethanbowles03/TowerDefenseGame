@@ -36,8 +36,8 @@ public class Menu implements Animatable {
 	public void update(double timeElapsed) {
 		// Adds the objects if they have not been added and the game is not over
 		if (!objectsAdded && state.getLives() > -1) {
-			state.addGameObject(new TowerMenuOil(state, 450, 470));
-			state.addGameObject(new TowerMenuWater(state, 454, 540));
+			state.addGameObject(new TowerMenuOil(state, 450, 510));
+			state.addGameObject(new TowerMenuWater(state, 452, 550));
 		}
 	}
 
@@ -64,15 +64,15 @@ public class Menu implements Animatable {
 		// Show the amount of credits
 		if (state.getCredits() == 0) {
 			g.setColor(new Color(174, 204, 72));
-			g.drawString("OUT OF CREDITS", 150, 490);
-			g.drawString(": 10", 487, 505);
-			g.drawString(": 5", 487, 580);
+			g.drawString("OUT OF CREDITS", 150, 539);
+			g.drawString(": 10", 487, 540);
+			g.drawString(": 5", 487, 585);
 		} else {
 			int credits = state.getCredits();
 			g.setColor(new Color(174, 204, 72));
-			g.drawString("" + credits, 150, 490);
-			g.drawString(": 10", 487, 505);
-			g.drawString(": 5", 487, 580);
+			g.drawString("" + credits, 150, 539);
+			g.drawString(": 10", 487, 540);
+			g.drawString(": 5", 487, 585);
 		}
 	}
 }
