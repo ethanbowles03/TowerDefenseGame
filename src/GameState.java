@@ -16,6 +16,8 @@ public class GameState {
 
 	int mouseX, mouseY, score, credits, lives, oilCreditSubtract;
 	boolean mouseClicked, validMousePos;
+	
+	private PlacementDetection pd;
 
 	// Soon to be used.
 
@@ -29,6 +31,7 @@ public class GameState {
 		score = 0;
 		lives = 3;
 		credits = 50;
+		pd = new PlacementDetection("TrackMask.png");
 	}
 
 	/**
@@ -115,7 +118,7 @@ public class GameState {
 	 * @return
 	 */
 	public boolean validMousePos() {
-		if (this.getMouseY() < 440) {
+		if (this.getMouseY() < 491 && !pd.checkColor(this.getMouseX(), this.getMouseY())) {
 			return true;
 		} else {
 			return false;

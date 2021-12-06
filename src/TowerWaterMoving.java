@@ -4,9 +4,12 @@ import java.awt.Graphics;
 
 public class TowerWaterMoving implements Animatable {
 	private GameState state;
+	private int waterWidth, waterHeight;
 
 	public TowerWaterMoving(GameState state) {
 		this.state = state;
+		waterWidth = 12;
+		waterHeight = 30;
 	}
 
 	@Override
@@ -16,7 +19,7 @@ public class TowerWaterMoving implements Animatable {
 
 			// Check to make sure it out of the menu area before placing
 			if (state.validMousePos()) {
-				state.addGameObject(new TowerWater(state, state.getMouseX(), state.getMouseY()));
+				state.addGameObject(new TowerWater(state, state.getMouseX()-waterWidth/2, state.getMouseY()-waterHeight/2));
 				state.addCredits(-5);
 			}
 		}
@@ -25,8 +28,8 @@ public class TowerWaterMoving implements Animatable {
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawImage(ResourceLoader.getLoader().getImage("WaterBottle.png"), state.getMouseX(), state.getMouseY(), 20,
-				50, null);
+		g.drawImage(ResourceLoader.getLoader().getImage("WaterBottle.png"), state.getMouseX()-waterWidth/2, state.getMouseY()-waterHeight/2, waterWidth,
+				waterHeight, null);
 	}
 
 }
