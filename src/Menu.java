@@ -37,7 +37,7 @@ public class Menu implements Animatable {
 		// Adds the objects if they have not been added and the game is not over
 		if (!objectsAdded && state.getLives() > -1) {
 			state.addGameObject(new TowerMenuOil(state, 450, 510));
-			state.addGameObject(new TowerMenuWater(state, 452, 550));
+			state.addGameObject(new TowerMenuWater(state, 454, 550));
 		}
 	}
 

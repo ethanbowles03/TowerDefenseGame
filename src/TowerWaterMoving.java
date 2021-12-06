@@ -8,8 +8,8 @@ public class TowerWaterMoving implements Animatable {
 
 	public TowerWaterMoving(GameState state) {
 		this.state = state;
-		waterWidth = 12;
-		waterHeight = 30;
+		waterWidth = 15;
+		waterHeight = 40;
 	}
 
 	@Override

@@ -4,11 +4,12 @@ import java.awt.Graphics;
 
 public class TowerOilMoving implements Animatable {
 	private GameState state;
-	private boolean creditsSubtracted;
+	private int oilWidth, oilHeight;
 
 	public TowerOilMoving(GameState state) {
 		this.state = state;
-		creditsSubtracted = false;
+		this.oilWidth = 24;
+		this.oilHeight = 36;
 	}
 
 	@Override
@@ -18,7 +19,7 @@ public class TowerOilMoving implements Animatable {
 
 			// Check to make sure it out of the menu area before placing
 			if (state.validMousePos()) {
-				state.addGameObject(new TowerOil(state, state.getMouseX(), state.getMouseY()));
+				state.addGameObject(new TowerOil(state, state.getMouseX()-oilWidth/2, state.getMouseY()-oilHeight/2));
 				state.addCredits(-10);
 			}
 		}
@@ -26,8 +27,8 @@ public class TowerOilMoving implements Animatable {
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawImage(ResourceLoader.getLoader().getImage("OilBarrel.png"), state.getMouseX(), state.getMouseY(), 30, 45,
-				null);
+		g.drawImage(ResourceLoader.getLoader().getImage("OilBarrel.png"), state.getMouseX()-oilWidth/2, state.getMouseY()-oilHeight/2, oilWidth,
+				oilHeight, null);
 	}
 
 }

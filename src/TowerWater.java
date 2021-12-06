@@ -10,8 +10,8 @@ public class TowerWater implements Animatable {
 		this.state = state;
 		this.x = x;
 		this.y = y;
-		waterWidth = 12;
-		waterHeight = 30;
+		waterWidth = 15;
+		waterHeight = 40;
 	}
 
 	@Override

@@ -4,13 +4,15 @@ import java.awt.Graphics;
 
 public class TowerOil implements Animatable {
 	private GameState state;
-	private int x, y;
+	private int x, y, oilHeight, oilWidth;
 	private boolean creditsSubtracted;
 
 	public TowerOil(GameState state, int x, int y) {
 		this.state = state;
 		this.x = x;
 		this.y = y;
+		this.oilWidth = 24;
+		this.oilHeight = 36;
 	}
 
 	@Override
@@ -20,7 +22,7 @@ public class TowerOil implements Animatable {
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawImage(ResourceLoader.getLoader().getImage("OilBarrel.png"), x, y, 30, 45, null);
+		g.drawImage(ResourceLoader.getLoader().getImage("OilBarrel.png"), x, y, oilWidth, oilHeight, null);
 	}
 
 }
