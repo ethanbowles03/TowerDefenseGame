@@ -27,7 +27,7 @@ public class TowerWaterMoving implements Animatable {
 	}
 
 	@Override
-	public void draw(Graphics g) {
+	public void draw(Graphics g, GameView v) {
 		g.drawImage(ResourceLoader.getLoader().getImage("WaterBottle.png"), state.getMouseX()-waterWidth/2, state.getMouseY()-waterHeight/2, waterWidth,
 				waterHeight, null);
 	}

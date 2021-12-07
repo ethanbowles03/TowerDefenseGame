@@ -26,7 +26,7 @@ public class TowerOilMoving implements Animatable {
 	}
 
 	@Override
-	public void draw(Graphics g) {
+	public void draw(Graphics g, GameView v) {
 		g.drawImage(ResourceLoader.getLoader().getImage("OilBarrel.png"), state.getMouseX()-oilWidth/2, state.getMouseY()-oilHeight/2, oilWidth,
 				oilHeight, null);
 	}

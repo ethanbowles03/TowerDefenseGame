@@ -3,11 +3,6 @@ package game;
 import java.awt.Graphics;
 
 public class GameOver implements Animatable {
-	private GameState state;
-
-	public GameOver(GameState state) {
-		this.state = state;
-	}
 
 	@Override
 	public void update(double timeElapsed) {
@@ -16,7 +11,7 @@ public class GameOver implements Animatable {
 	}
 
 	@Override
-	public void draw(Graphics g) {
+	public void draw(Graphics g, GameView v) {
 		g.drawImage(ResourceLoader.getLoader().getImage("GameOver.png"), 0, 0, null);
 	}
 }

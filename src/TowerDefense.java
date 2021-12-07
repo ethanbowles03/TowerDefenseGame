@@ -3,8 +3,11 @@
  */
 package game;
 
+import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.SwingUtilities;
 
 public class TowerDefense {
@@ -24,9 +27,8 @@ public class TowerDefense {
 		// We'll have to discuss this next week.
 
 		SwingUtilities.invokeAndWait(gc);
-
+		
 		// (The above function call may throw an exception.
 		// I added a 'throws' to main to deal with it.)
 	}
-
 }

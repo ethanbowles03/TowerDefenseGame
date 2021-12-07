@@ -84,10 +84,13 @@ public class GameView extends JPanel implements MouseListener, MouseMotionListen
 	 */
 	public void paint(Graphics g) {
 		// Draw the backdrop.
-		g.drawImage(ResourceLoader.getLoader().getImage("path_2.jpg"), 0, 0, null);
-
-		// Draw everything else
-		state.drawAll(g);
+		if(!state.isGameStarted()) {
+			g.drawImage(ResourceLoader.getLoader().getImage("StartOverlay.png"), 0, 0, null);
+		}else {
+			g.drawImage(ResourceLoader.getLoader().getImage("path_2.jpg"), 0, 0, null);
+			// Draw everything else
+			state.drawAll(g, this);
+		}
 	}
 
 	/*
@@ -98,6 +101,7 @@ public class GameView extends JPanel implements MouseListener, MouseMotionListen
 	 */
 	public void mousePressed(MouseEvent e) {
 		state.setMouseClicked(true);
+		System.out.println("hello");
 	}
 
 	public void mouseClicked(MouseEvent e) {
@@ -120,6 +124,16 @@ public class GameView extends JPanel implements MouseListener, MouseMotionListen
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		state.setMouseLocation(e.getX(), e.getY());
+	}
+	
+	public void drawCenteredImage(Graphics g, String imageName, int x, int y, double scale){
+		BufferedImage image = ResourceLoader.getLoader().getImage(imageName);
+		int width = image.getWidth();
+		int height = image.getHeight();
+		int centerX = x - (int)(width/2*scale);
+		int centerY = y - (int)(height/2*scale);
+			        
+		g.drawImage(image, centerX, centerY, (int)(width*scale), (int)(height*scale),null);
 	}
 
 }

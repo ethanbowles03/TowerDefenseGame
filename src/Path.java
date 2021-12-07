@@ -63,51 +63,37 @@ public class Path {
 	 * @return the screen coordinate of this position along the path
 	 */
 	public Point getPathPosition(double percentTraveled) {
-		// Variables
-		double distanceFromStart = percentTraveled * getPathLength();
-		double distanceToSpot = 0;
-		double useDistance = 0;
-		Point currentPoint = null;
-		Point nextPoint = null;
-		int x = (int) points[0].getX();
-		int y = (int) points[0].getY();
-
-		// Loops through and finds the distance to the spot
-		for (int i = 0; i < points.length - 1; i++) {
-			int newX = (int) points[i + 1].getX();
-			int newY = (int) points[i + 1].getY();
-			useDistance = distanceToSpot;
-			distanceToSpot += Math.sqrt((newX - x) * (newX - x) + (newY - y) * (newY - y));
-			if (distanceFromStart < distanceToSpot) {
-				currentPoint = points[i];
-				nextPoint = points[i + 1];
-				break;
-			}
-			x = newX;
-			y = newY;
+		//Check to make sure percent traveled is in correct bounds
+		if(percentTraveled < 0.0) {
+			percentTraveled = 0.0;
+		}else if(percentTraveled > 1.0) {
+			percentTraveled = 1.0;
 		}
+		
+		//Gets the path length behind the car
+		double pathLength = getPathLength() * percentTraveled;
+		
+		//Find the how far the point is along the line segment
+		int i = 0;
+		double len = 0;
+		while (true){
+			len = points[i].distance(points[i + 1]);
+			if (len >= pathLength)
+				break;
+			pathLength -= len;
+			i++;
+		}
+		
+		//Find the exact point between the two points found above 
+		double perc = pathLength / len;
+		int x1 = points[i].x;
+		int x2 = points[i + 1].x;
+		int y1 = points[i].y;
+		int y2 = points[i + 1].y;
+		Point p = new Point((int)(((1 - perc) * x1) + ((perc) * x2)), (int)(((1 - perc) * y1) + ((perc) * y2)));
 
-		// Variables
-		double numVal = distanceFromStart - useDistance;
-		double denomVal = distanceToSpot - useDistance;
-		double fracPerc = numVal / denomVal;
-		double xResult, xStart, xEnd, yResult, yStart, yEnd;
-
-		// Calculates the percent
-		xStart = currentPoint.getX();
-		yStart = currentPoint.getY();
-		xEnd = nextPoint.getX();
-		yEnd = nextPoint.getY();
-		xResult = (1 - fracPerc) * xStart + (fracPerc) * xEnd;
-		yResult = (1 - fracPerc) * yStart + (fracPerc) * yEnd;
-
-		// Gives the exact point were the dot is
-		int xResultInt = (int) xResult;
-		int yResultInt = (int) yResult;
-		Point returnPoint = new Point(xResultInt, yResultInt);
-
-		// Returns the point
-		return returnPoint;
+		//Return the exact position
+		return p;
 	}
 
 	/**

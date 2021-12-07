@@ -42,7 +42,7 @@ public class Menu implements Animatable {
 	}
 
 	@Override
-	public void draw(Graphics g) {
+	public void draw(Graphics g, GameView v) {
 
 		// Draws the menu overlay
 		g.drawImage(ResourceLoader.getLoader().getImage("MenuOverlay.png"), 0, 0, null);

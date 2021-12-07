@@ -25,7 +25,7 @@ public class TowerMenuOil implements Animatable {
 	}
 
 	@Override
-	public void draw(Graphics g) {
+	public void draw(Graphics g, GameView v) {
 		g.drawImage(ResourceLoader.getLoader().getImage("OilBarrel.png"), x, y, 24, 36, null);
 	}
 

@@ -4,6 +4,7 @@
 package game;
 
 import java.awt.Graphics;
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,13 +16,16 @@ public class GameState {
 	List<Animatable> objectsToAdd;
 
 	int mouseX, mouseY, score, credits, lives, oilCreditSubtract;
-	boolean mouseClicked, validMousePos;
+	boolean mouseClicked, validMousePos, mute, gameStart;
 	
 	private PlacementDetection pd;
+	private MusicPlayer mp;
 
 	// Soon to be used.
 
 	public GameState() {
+		mp = new MusicPlayer();
+		mp.playMusic();
 		gameObjects = new ArrayList<Animatable>();
 		objectsToRemove = new ArrayList<Animatable>();
 		objectsToAdd = new ArrayList<Animatable>();
@@ -30,7 +34,9 @@ public class GameState {
 		mouseClicked = false;
 		score = 0;
 		lives = 3;
-		credits = 50;
+		credits = 30;
+		mute = false;
+		gameStart = false;
 		pd = new PlacementDetection("TrackMask.png");
 	}
 
@@ -101,6 +107,16 @@ public class GameState {
 	 */
 	public void setMouseClicked(boolean a) {
 		mouseClicked = a;
+		gameStart = true;
+		if(getMouseX() > 570 && getMouseX() < 600 && getMouseY() > 0 && getMouseY() < 30) {
+			if(mute) {
+				mp.playMusic();
+				mute = false;
+			}else {
+				mp.pauseMusic();
+				mute = true;
+			}
+		}
 	}
 
 	/**
@@ -157,6 +173,11 @@ public class GameState {
 	public void editCredts(int x) {
 		credits = x;
 	}
+	
+	public boolean isGameStarted() {
+		return gameStart;
+	}
+
 
 	public void updateAll(double elapsedTime) {
 		for (Animatable a : gameObjects) {
@@ -170,9 +191,41 @@ public class GameState {
 		objectsToAdd.clear();
 	}
 
-	public void drawAll(Graphics g) {
+	public void drawAll(Graphics g, GameView view) {
 		for (Animatable a : gameObjects) {
-			a.draw(g);
+			a.draw(g, view);
 		}
+	}
+	/**
+	 * Finds and returns the enemy nearest to the spesified point
+	 * @return referense to the enemy nearest to the point
+	 */
+	public Enemy findNearestEnemy(Point p) {
+		Enemy closest = null;
+		
+		for(Animatable a: gameObjects) {
+			if (a instanceof Enemy) {
+				Enemy e = (Enemy) a;
+				if(closest == null) {
+					closest = e;
+				}else{
+					Point currentClosestPosistion = closest.getPosition();
+					Point enemyPosition = e.getPosition();
+					
+					double distanceToCurrentClosest = p.distance(currentClosestPosistion);
+					double distanceToEnemy = p.distance(enemyPosition);
+					
+					if(distanceToEnemy < distanceToCurrentClosest) {
+						closest = e;
+					}
+				}
+			}
+		}
+		
+		return closest;
+	}
+	
+	public void deleteGame() {
+		gameObjects.clear();
 	}
 }

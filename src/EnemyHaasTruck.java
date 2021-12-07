@@ -68,7 +68,7 @@ public class EnemyHaasTruck extends Enemy {
 
 	@Override
 	public void update(double timeElapsed) {
-		percentTravelled = percentTravelled + 0.03 * timeElapsed;
+		percentTravelled = percentTravelled + 0.04 * timeElapsed;
 		if (percentTravelled > 1) {
 			state.removeGameObject(this);
 			state.addLives(-1);
@@ -76,7 +76,7 @@ public class EnemyHaasTruck extends Enemy {
 	}
 
 	@Override
-	public void draw(Graphics g) {
+	public void draw(Graphics g, GameView v) {
 
 		// Checks the percent the car is at and makes sure it doesn't crash
 		if (percentTravelled < 1) {
