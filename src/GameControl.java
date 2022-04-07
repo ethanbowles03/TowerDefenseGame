@@ -1,5 +1,8 @@
 /**
- * You will eventually need to add header comments to this file.
+ * This class holds the constructor and methods for the GameControl object.
+ * 
+ * @author Conner Fisk & Ethan Bowles
+ * @date December 7, 2021
  */
 package game;
 
@@ -11,33 +14,36 @@ import javax.swing.Timer;
 public class GameControl implements Runnable, ActionListener {
 
 	// Fields
-	GameView view;
-	GameState state;
-	int count, carCount, gameOverCount;
-	long previousTime;
-	boolean isStarted;
+	private GameView view;
+	private GameState state;
+	private int count, carCount, gameOverCount;
+	private long previousTime;
+	private boolean isStarted;
 	private Timer timer;
 
+	/**
+	 * Constructor for the GameControl object
+	 */
 	public GameControl() {
-		// I moved all the code into a function named 'run' below.
 		isStarted = false;
 	}
 
+	/**
+	 * Builds the GameState and "runs" the game
+	 */
 	public void run() {
-		
+
 		// Build the game state.
 
 		state = new GameState();
-		
-		// Build a view. Note that the view builds it's own frame, etc. All the work is
-		// there.
+
+		// Build a view.
 
 		view = new GameView(state);
 
+		// Adds a menu and a HaasCar to start
 		state.addGameObject(new Menu(state));
 		state.addGameObject(new EnemyHaasCar(0, state));
-
-		// Start the animation loop.
 
 		// Starts timer
 		timer = new Timer(16, this);
@@ -49,27 +55,34 @@ public class GameControl implements Runnable, ActionListener {
 		count = 0;
 	}
 
-	// Called whenever an action event happens, and we are
-	// listening to that event. The timer automatically sets
-	// us 'this' up as the listener above.
+	/**
+	 * Called whenever an action event happens, and we are listening to that event.
+	 * The timer automatically sets us 'this' up as the listener above.
+	 * 
+	 * @param e -> ActionEvent object
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(state.isGameStarted()) {
+		if (state.isGameStarted()) {
 			// Checks to see if the game is over
 			if (state.getLives() < 0 && gameOverCount < 1) {
 				long currentTime = System.nanoTime();
 				double elapsedTime = (currentTime - previousTime) / 1_000_000_000.0;
-
+				// Updates all objects
 				state.updateAll(elapsedTime);
+				// Removes all objects
 				state.deleteGame();
+				// Adds only a GameOver object
 				state.addGameObject(new GameOver());
+				// Paints the GameOver object
 				view.repaint();
+				// Update the gameOverCount
 				gameOverCount = 1;
 			} else { // Continues if it is not
 				if (gameOverCount != 1) {
 					count++;
 					if (count % 28 == 0) {
-						// Adds a truck 25% of the time
+						// Adds one truck for every three cars
 						if (carCount % 3 == 0) {
 							state.addGameObject(new EnemyHaasTruck(0, state));
 							carCount++;
@@ -79,9 +92,6 @@ public class GameControl implements Runnable, ActionListener {
 						}
 					}
 				}
-				// Our animation 'loop' -- not an actual loop,
-				// but we recognize that this function get called
-				// repeatedly.
 
 				// Calculate elapsed time since last update
 
@@ -102,6 +112,6 @@ public class GameControl implements Runnable, ActionListener {
 				view.repaint();
 
 			}
-		}	
+		}
 	}
 }
